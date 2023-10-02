@@ -1,0 +1,84 @@
+
+<?page title="InterOrama-Upload" contentType="text/html;charset=UTF-8"?>
+
+<zk>
+	<window title="InterOrama" border="normal">
+		<div id="navigate">
+			<navbar>
+				<navitem label="Home" href="HomePage.zul" />
+				<navitem label="Upload" href="UploadFile.zul" />
+				<navitem label="Load" href="index.zul" />
+				<navitem label="Join" href="SignUpLogIn.zul" />
+			</navbar>
+			<separator></separator>
+		</div>
+
+		<div apply="org.zkoss.bind.BindComposer"
+			viewModel="@id('vm') @init('com.FormViewModel')"
+			validationMessages="@id('vmsgs')"
+			form="@id('fx') @load(vm.user) @save(vm.user, before='submit')">
+			<grid>
+				<auxhead>
+					<auxheader colspan="2" label="Personal Data"
+						style="font-size:16px"></auxheader>
+				</auxhead>
+				<columns>
+					<column />
+					<column />
+				</columns>
+				<rows>
+					<row>
+						First Name *
+						<textbox value="@bind(fx.firstName)" constraint="no empty" hflex="1"/>
+					</row>
+					<row>
+						Last Name *
+						<textbox value="@bind(fx.lastName)" constraint="no empty" hflex="1"/>
+					</row>
+					<row>
+						Phone
+						<textbox value="@bind(fx.telephone)"
+							hflex="1" maxlength="15" />
+					</row>
+					<row>
+						Birth Date *
+						<hbox align="center">
+							<datebox value="@bind(fx.birthday)"
+								format="@load(vm.dateFormat)" constraint="no empty"/>
+						</hbox>
+					</row>
+					<row>
+						E-mail *
+						<cell>
+							<textbox value="@bind(fx.email)" hflex="1" constraint="no empty"/>
+							<label class="error" value="@load(vmsgs['email'])" />
+						</cell>
+					</row>
+					<row>
+						Examination Area *
+						<textbox value="@bind(fx.examinationArea)" hflex="1" constraint="no empty"/>
+					</row>
+					<row>
+						Examination Type *
+						<textbox value="@bind(fx.examinationType)" hflex="1" constraint="no empty"/>
+					</row>
+					<row>
+						Upload Image
+						<button label="Upload Image" upload="true,maxsize=300" hflex="1">
+						</button>
+					</row>
+					<row>
+						<cell colspan="2" style="text-align:center">
+							<vlayout>
+								<label visible="@load(empty vmsgs)"
+									value="@load(empty vmsgs ? 'Form successfully submitted!' : '', before='submit')" />
+								<button label="Submit" onClick="@command('submit')"
+									width="100px" />
+							</vlayout>
+						</cell>
+					</row>
+				</rows>
+			</grid>
+		</div>
+	</window>
+</zk>

@@ -1,0 +1,48 @@
+<?page title="InterOrama-LogIn" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window title="InterOrama" border="normal">
+		<div id="navigate">
+			<navbar>
+				<navitem label="Home" href="HomePage.zul" />
+				<navitem label="Upload" href="UploadFile.zul" />
+				<navitem label="Load" href="index.zul" />
+				<navitem label="Join" href="SignUpLogIn.zul" />
+			</navbar>
+			<separator></separator>
+		</div>
+		New to InterOrama? Sign Up <button label="here!" href="SignUpLogIn.zul"></button>
+		<separator></separator>
+		
+		<window border="normal" width="52%" title="Welcome back!"
+			apply="com.ButtonComponents">
+			<grid hflex="1">
+				<auxhead>
+					<auxheader colspan="2" label="Log In"
+						style="font-size:16px"></auxheader>
+				</auxhead>
+				<columns visible="false">
+					<column></column>
+					<column></column>
+				</columns>
+				<rows>
+					<row>
+						User Name
+						<textbox id="nameBox" hflex="1" constraint="no empty" />
+					</row>
+					<row>
+						Password
+						<textbox id="passcode" hflex="1" constraint="no empty" />
+					</row>
+					<row spans="2" align="right">
+						<hlayout>
+							<button id="resetButton" label="Reset" />
+							<button id="submitButton" label="Submit" />
+						</hlayout>
+					</row>
+				</rows>
+			</grid>
+
+		</window>
+
+	</window>
+</zk>
