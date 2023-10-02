@@ -26,7 +26,7 @@ To use Inside one should:
 
     `CREATE TABLE IF NOT EXISTS users (firstname VARCHAR(1000), lastname VARCHAR(1000), email VARCHAR(1000), examination_type VARCHAR(1000), pathname VARCHAR(1000), uuid VARCHAR(1000)); "`
     
-`CREATE TABLE IF NOT EXISTS image_data (email VARCHAR(1000), examination_type VARCHAR(1000), pathname VARCHAR(1000), filename VARCHAR(1000), header_file_data BLOB , png_file_data MEDIUMBLOB, dcm_file_data MEDIUMBLOB);`
+    `CREATE TABLE IF NOT EXISTS image_data (email VARCHAR(1000), examination_type VARCHAR(1000), pathname VARCHAR(1000), filename VARCHAR(1000), header_file_data BLOB , png_file_data MEDIUMBLOB, dcm_file_data MEDIUMBLOB);`
 
  5. Run Inside:
 		 i.  Open CommandPrompt and go to the Project File
